@@ -19,6 +19,22 @@ In the, [Assessing Time-Varying Causal Effect Moderation in Mobile Health](https
 
 Here is our treatment effect is $A_t$.  When, $A_t = 1$, then a mindfulness message is provided at the $t$ th treatment occasion, otherwise $A_t = 0$.  We also have $\bar{A_t} = (A_1, …, A_t)$ which includes a sequence of random variables or realized values up to a specific treatment occasion.  The "bar" notation can be applied to other variables, $X$ and $Y$.  The response variable is, $Y_{t+1}$, which is the smoking rate between the occasion $t$ self-report and the following self-report.  The variable, $X_t$, contains summaries of previous measurements of context.  $X_t$ includes the time of day, number of reports recently completed, prior smoking rate, current need to self-regulate, baseline smoking severity, baseline drinking level, age, gender, and other summary variables formed from the reports up to and including the $t$ th occasion.  Lastly we have our history variable, $H_t = (\bar{X}_t, \bar{Y}_t, \bar{A}_{t - 1})$, which is our information accrued up to treatment occasion $t$.
 
+Our first causal effect is,
+
+\begin{align}
+    \mathbb{E}[Y_{t + 1}(\bar{A}_{t - 1}, 1) - Y_{t + 1}(\bar{A}_{t - 1}, 0) | S_{1t}(\bar{A}_{t - 1})]
+\end{align}
+
+where $S_{1t}(\bar{A}_{t - 1})$ is a vector of summary variables chosen from $H_t(\bar{A}_{t - 1})$.  This causal effect represents the difference between effect of $A_t = 1$ (mindfulness message treatment) versus $A_t = 0$ on the smoking rate response at $t + 1$ given $S_{1t}(\bar{A}_{t - 1})$.  Here, $S_{1t}(\bar{A}_{t - 1})$, addresses a variety of scientific questions.
+
+The next causal effect incorporates lagged effects.  Lagged effects are delayed treatment effects on our smoking rate response.  Below is the lagged causal effect,
+
+\begin{align}
+    \mathbb{E}[Y_{t + k}(\bar{A}_{t - 1}, 1, A_{t + 1}^{a_t = 1}, ..., A_{t + k - 1}^{a_t = 1}) - Y_{t + k}(\bar{A}_{t - 1}, 0, A_{t + 1}^{a_t = 0}, ..., A_{t + k - 1}^{a_t = 0}) | S_{kt}(\bar{A}_{t  - 1})]
+\end{align}
+
+where, $A_{t + 1}^{a_t = a} = A_{t + 1}(\bar{A}_{t - 1}, a)$ is the first lagged effect, $A_{t + 2}^{a_t = a} = A_{t + 2}(\bar{A}_{t - 1}, a, A_{t + 1}^{a_t = a})$ is the second lagged effect and so on.  Here there are a total of $k$ lagged effects.
+
 
 
 
