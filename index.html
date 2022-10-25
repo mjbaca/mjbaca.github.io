@@ -56,7 +56,9 @@ Below is a SWIG diagram/relationship graph between the variables, $A_t, X_t,$ an
 
 **Assumptions**
 
-Our fisrt assumption is that there is exchangeability, i.e. $Y(a) \perp \!\!\! \perp A$ for $a \in A$.  We can make this assumption because knowing that person $i$ has been assigned treatement $a = 1$ gives no information on the smoking rate, $Y$, of person $j$ who has been assigned to treatment $a = 0$.  The assumption of SUTVA where that $a \mapsto Y(a)$ is well defined is also being made.  We can make this assumptions because we are assuming that $a = 1$ reduces smoking rate $Y(a)$ while $a = 0$ does not.  The assumption of positivity $\mathbb{P}(A = a) \in (0, 1)$ is also being made.
+Our fisrt assumption is that there is exchangeability, i.e. $Y(a) \perp \!\!\! \perp A$ for $a \in A$.  We can make this assumption because knowing that person $i$ has been assigned treatement $a = 1$ gives no information on the smoking rate, $Y$, of person $j$ who has been assigned to treatment $a = 0$.  The assumption of SUTVA where that $a \mapsto Y(a)$ is well defined is also being made.  We can make this assumptions because we are assuming that $a = 1$ reduces smoking rate $Y(a)$ while $a = 0$ does not.  The assumption of positivity $\mathbb{P}(A = a) \in (0, 1)$ is also being made.  We can make this assumption because our subjects are being assigned the mindfullness treatment or not i.e. $a = 1$ or $a = 0$.  
+
+The assumption of conditional positivity is also being made where $\mathbb{P}(A = a | S)$, where $S$ is a function of the previous, $A,X$ and $Y$ variables$.  T
 
 
 <!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js" charset="utf-8"></script><script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js?" charset="utf-8"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
