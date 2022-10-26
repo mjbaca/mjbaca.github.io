@@ -56,9 +56,9 @@ Below is a SWIG diagram/relationship graph between the variables, $A_t, X_t,$ an
 
 **Assumptions**
 
-Our first assumption is that there is exchangeability, i.e. $Y(a) \perp \!\!\! \perp A$ for $a \in A$.  We can make this assumption because knowing that person $i$ has been assigned treatment $a = 1$ gives no information on the smoking rate, $Y$, of person $j$ who has been assigned to treatment $a = 0$.  The assumption of SUTVA where that $a \mapsto Y(a)$ is well defined is also being made.  We can make this assumptions because we are assuming that $a = 1$ reduces smoking rate $Y(a)$ while $a = 0$ does not.  The assumption of positivity $\mathbb{P}(A = a) \in (0, 1)$ is also being made.  We can make this assumption because our subjects are being assigned the mindfullness treatment or not i.e. $a = 1$ or $a = 0$.  
+Our first assumption is of exchangeability, i.e. $Y(a) \perp \!\!\! \perp A$ for $a \in A$.  We can make this assumption because knowing that person $i$ has been assigned treatment $a = 1$ gives no information on the smoking rate, $Y$, of person $j$ who has been assigned to treatment $a = 0$.  The assumption of SUTVA where that $a \mapsto Y(a)$ is well defined is also being made.  We can make this assumptions because we are assuming that $a = 1$ reduces smoking rate $Y(a)$ while $a = 0$ does not.  The assumption of positivity $\mathbb{P}(A = a) \in (0, 1)$ is also being made.  We can make this assumption because our subjects are either being assigned the mindfullness treatment or not i.e. $a = 1$ or $a = 0$.  
 
-The assumption of conditional positivity is also being made where $\mathbb{P}(A = a | S) \in (0, 1)$, where $S$ is a function of the previous, $A,X$ and $Y$ variables.  The assumption of conditional exchangeability i.e. $A \perp \!\!\! \perp Y(a)|S$ is also being made.  Lastly the assumption of $\mathbb{P}(S) > 0$ is being made sense the histories of $A, X,$ and $Y$ are all non zero.
+The assumption of conditional positivity is also being made where $\mathbb{P}(A_t = a_t | S_t) \in (0, 1)$, where $S_t$ is a function of, $A_{t-1}, X_{t-1}$, and $Y_{t-1}$ variables.  The assumption of conditional exchangeability i.e. $A \perp \!\!\! \perp Y(a)|S$ is also being made.  Lastly the assumption of $\mathbb{P}(S) > 0$ is being made sense the histories of $A, X,$ and $Y$ are all non zero.
 
 **Theorem 3.1**
 Given positivity, SUTVA, and exchangeability, then
@@ -68,7 +68,7 @@ $$
 $$
 
 **Theorem 3.2**
-Assume conditional positivity, conditional exchangeability, and $\mathbb{P}(X \in C) > 0$, then
+Assume conditional positivity, conditional exchangeability, and $\mathbb{P}(X \in C) > 0$ where $C \in \mathbb{R}^d$, then
 
 $$
 \mathbb{E}[Y(a) | X \in C] = \mathbb{E}[Y | A = a, X \in C]
