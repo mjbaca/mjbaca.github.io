@@ -58,7 +58,7 @@ Below is a SWIG diagram/relationship graph between the variables, $A_t, X_t,$ an
 
 Our first assumption is of exchangeability, i.e. $Y(a) \perp \!\!\! \perp A$ for $a \in A$.  We can make this assumption because knowing that person $i$ has been assigned treatment $a = 1$ gives no information on the smoking rate, $Y$, of person $j$ who has been assigned to treatment $a = 0$.  The assumption of SUTVA where that $a \mapsto Y(a)$ is well defined is also being made.  We can make this assumptions because we are assuming that $a = 1$ reduces smoking rate $Y(a)$ while $a = 0$ does not.  The assumption of positivity $\mathbb{P}(A = a) \in (0, 1)$ is also being made.  We can make this assumption because our subjects are either being assigned the mindfullness treatment or not i.e. $a = 1$ or $a = 0$.  
 
-The assumption of conditional positivity is also being made where $\mathbb{P}(A_t = a_t | S_t) \in (0, 1)$, where $S_t$ is a function of, $A_{t-1}, X_{t-1}$, and $Y_{t-1}$ variables.  The assumption of conditional exchangeability i.e. $A \perp \!\!\! \perp Y(a)|S$ is also being made.  Lastly the assumption of $\mathbb{P}(S) > 0$ is being made sense the histories of $A, X,$ and $Y$ are all non zero.
+The assumption of conditional positivity is also being made where $\mathbb{P}(A_t = a_t | S_t) \in (0, 1)$, where $S_t$ is a function of, $\bar{A}_{t-1}, \bar{X}_{t}$, and $\bar{Y}_{t}$ variables.  The assumption of conditional exchangeability i.e. $A \perp \!\!\! \perp Y(a)|S$ is also being made.  Lastly the assumption of $\mathbb{P}(S) > 0$ is being made sense the histories of $A, X,$ and $Y$ are all non zero.
 
 **Theorem 3.1**
 Given positivity, SUTVA, and exchangeability, then
@@ -83,7 +83,7 @@ Identification will be done for the first three time points, $t$, on the followi
 \end{equation}
 
 
-where $S_t$ is a function of $A_{t-1}, X_{t-1},$ and $Y_{t-1}$.
+where $S_t$ is a function of $\bar{A}_{t-1}, \bar{X}_{t},$ and $\bar{Y}_{t}$.
 
 ***Case 1:***
 
@@ -97,7 +97,7 @@ For $t = 1$ our casual effect becomes,
 \mathbb{E}[Y_2(1) - Y_2(0)]
 \end{align*}
 
-Sense we do not have any history on $X$ or $A$ yet, our $S_1$ function does not exhist.  From SUTVA and Theorem 3.1 we get,
+Sense we do not have any history on $X, A$, or $Y$ yet, our $S_1$ function does not exhist.  From SUTVA and Theorem 3.1 we get,
 
 \begin{align*}
 \mathbb{E}[Y_2(1) - Y_2(0)|S_1] = \mathbb{E}[Y_2|S_1, A_1 = 1] - \mathbb{E}[Y_2|S_1, A_1 = 0]
@@ -223,7 +223,7 @@ Via SUTVA and Theorem 3.2 our casual effect becomes,
 
 **Conclusion**
 
-For $t = 1$, the identification of our casual effect only needs the first assigned treatment values of $A_1 = 1$ and $A_1 = 0$.  Next, for the second time point, $t = 2$, the identification of our casual effects needs the previous treatment variables, $A_1 = a_1$.  The newly assigned treatment values of $A_2 = 1$ and $A_2 = 0$.  Lastly the identification needs the previous response variable $Y_2$ and the previous summary variable, $X_2$.
+For $t = 1$, the identification of our casual effect only needs the first assigned treatment values of $A_1 = 1$ and $A_1 = 0$.  Next, for the second time point, $t = 2$, the identification of our casual effects needs, $S_2$, which is a function of $X_1, A_1$, and $Y_2$.  Also the previous treatment variables, $A_1 = a_1$ is needed.  The newly assigned treatment values of $A_2 = 1$ and $A_2 = 0$.  Lastly the identification needs the previous response variable, $Y_2$, and the previous summary variable, $X_2$.  For the third time point, $t = 3$, the identification of our casual effects needs, $S_3$ which is a function of previous $X, A,$ and $Y$.  Also the previous treatment variables, $A_1 = a_1$ and $A_2 = a_2$ are needed.  The newly assigned treatment values of $A_3 = 1$ and $A_3 = 0$.  Lastly the identifications needs the previous response variable, $Y_3$, and the previous summary variable, $X_3$.
 
 <!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js" charset="utf-8"></script><script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js?" charset="utf-8"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
 
