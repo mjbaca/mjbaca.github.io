@@ -25,21 +25,13 @@ Here is our treatment effect is $A_t$.  When, $A_t = 1$, then a mindfulness mess
 
 **Causal Effects**
 
-Our first causal effect is,
+Our causal effect is,
 
 $$
 \mathbb{E}[Y_{t + 1}(\bar{A}_{t - 1}, 1) - Y_{t + 1}(\bar{A}_{t - 1}, 0) | S_{1t}(\bar{A}_{t - 1})]
 $$
 
 where $S_{1t}(\bar{A}_{t - 1})$ is a vector of summary variables chosen from $H_t(\bar{A}_{t - 1})$.  This causal effect represents the difference between effect of $A_t = 1$ (mindfulness message treatment) versus $A_t = 0$ on the smoking rate response at $t + 1$ given $S_{1t}(\bar{A}_{t - 1})$.  Here, $S_{1t}(\bar{A}_{t - 1})$, addresses a variety of scientific questions.
-
-The next causal effect incorporates lagged effects.  Lagged effects are delayed treatment effects on our smoking rate response.  Below is the lagged causal effect,
-
-$$
-\mathbb{E}[Y_{t + k}(\bar{A}_{t - 1}, 1, A_{t + 1}^{a_t = 1}, ..., A_{t + k - 1}^{a_t = 1}) - Y_{t + k}(\bar{A}_{t - 1}, 0, A_{t + 1}^{a_t = 0}, ..., A_{t + k - 1}^{a_t = 0}) | S_{kt}(\bar{A}_{t  - 1})]
-$$
-
-where, $A_{t + 1}^{a_t = a} = A_{t + 1}(\bar{A}_{t - 1}, a)$ is the first lagged effect, $A_{t + 2}^{a_t = a} = A_{t + 2}(\bar{A}_{t - 1}, a, A_{t + 1}^{a_t = a})$ is the second lagged effect and so on.  Here there are a total of $k$ lagged effects.
 
 **Hypothesis**
 
