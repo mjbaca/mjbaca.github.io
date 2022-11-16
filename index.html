@@ -222,5 +222,34 @@ Homework-4
 
 Outcome regression adjusting for propensity score will be used to estimate our casual estimate.  We are assuming that $X$ is measured and satisfies backdoor criteria.  Also, the assumption of $Y(a)$ being well-defined (SUTVA) is being made.  Lastly the assumption of positivity for $Y(a)$ is being made.  Sense data is not available, only pseudo code will be provided for our estimation techniques.  Because our data is longitudinal the estimation pseudo code will only be shown for the first three time points. 
 
+***Case 1:***
+
+Here our time point is at $t = 1$ and below is our casual estimate,
+
+\begin{align*}
+\mathbb{E}[Y_2(1) - Y_2(0)|S_1] = \mathbb{E}[Y_2|S_1, A_1 = 1] - \mathbb{E}[Y_2|S_1, A_1 = 0]
+\end{align*}
+
+Our data set is,
+
+$$D = [Y_2, A_1, S_1]$$
+
+Next we need to estimate our propensity score.  This is done by regressing $A_1$ onto $S_1$ via GLM with a logit link function.  
+
+
+\begin{align*}
+mod = fitglm(D, A_1 \sim S_1, "binomial")
+\end{align*}
+
+Then we make our predictions,
+
+\begin{align*}
+p = predict(mod, D)
+\end{align*}
+
+Next we build linear splines with propensity scores and knots at quantiles.  The propensity scores and splines are added to the data, $D$.
+
+
+
 <!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js" charset="utf-8"></script><script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js?" charset="utf-8"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
 
