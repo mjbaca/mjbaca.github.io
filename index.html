@@ -226,16 +226,15 @@ Outcome regression adjusting for propensity score will be used to estimate our c
 
 Here our time point is at $t = 1$ and below is our casual estimate,
 
-\begin{align*}
+\begin{align}
 \mathbb{E}[Y_2(1) - Y_2(0)|S_1] = \mathbb{E}[Y_2|S_1, A_1 = 1] - \mathbb{E}[Y_2|S_1, A_1 = 0]
-\end{align*}
+\end{align}
 
 Our data set is,
 
 $$D = [Y_2, A_1, S_1]$$
 
 Next we need to estimate our propensity score.  This is done by regressing $A_1$ onto $S_1$ via GLM with a logit link function.  
-
 
 \begin{align*}
 mod = fitglm(D, A_1 \sim S_1, "binomial")
@@ -248,6 +247,22 @@ p = predict(mod, D)
 \end{align*}
 
 Next we build linear splines with propensity scores and knots at quantiles.  The propensity scores and splines are added to the data, $D$.
+
+\begin{align*}
+&D$p = p \\
+&q = quantile(p, [0.25, 0.5, 0.75]) \\
+&D$p_1 = (p \ge q(1)) \cdot (p - q(1)) \\
+&D$p_2 = (p \ge q(2)) \cdot (p - q(2)) \\
+&D$p_3 = (p \ge q(3)) \cdot (p - q(3))
+\end{align*}
+
+Now we build our outcome regression model with $A_1$.
+
+\begin{align*}
+mod = fitglm(D, Y_2 \sim A_1 + p + p_1 + p_2 + p_3)
+\end{align*}
+
+We can now estimate (4) with the coefficient for $A_1$ from the outcome regression model above.
 
 
 
