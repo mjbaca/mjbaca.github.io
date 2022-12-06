@@ -394,13 +394,11 @@ For the first time point, $t = 1$, we will find the Manski bounds for casual est
 $$D = [Y_2, A_1, S_1]$$
 
 1.  Calculate the Manksi upper bound
-
 ```
 U = mean(D$Y2[D$A1 == 0]) - mean(D$Y2[D$A1 == 1])
 ```
 
 2.  Calculate the Manski bounds
-
 ```
 bounds = c(0, u)
 ```
@@ -412,14 +410,6 @@ bounds = c(0, u)
   3.  Recalculate the casual estimate (4) using $A_1^*$ and save into vector $E$. 
   4.  Repeat b-c a total of $B$ (large number) of times 
   5.  Calculate p-value = sum($E \ge E^*$) / $B$ 
-
-1. Make a user interface with the following controls:
-  1. Resolution dropdown box featuring at least 1x1, 320x200, and 640x400 options.
-  2. Check box for adding "fixed primitives" to the scene.
-  3. Check box for "multithreading" the ray tracing.
-  4. Integer number box for the number of "indirect" rays per pixel, between 0 and 2048.
-  5. Loading a G3D scene (already provided for you in `G3D::GApp` by the Scene Editor Window).
-  6. A "Render" button for launching rendering.
 
 Lastly with the calculated p-value we reject or accept the null hypothesis $H_0$ that there is no association.
 
