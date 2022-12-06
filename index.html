@@ -450,7 +450,8 @@ $$D = [Y_3, Y_4, X_3, A_1, A_2, A_3, S_3]$$
 U = mean(D$Y4[D$A3 == 0]) - mean(D$Y4[D$A3 == 1])
 ```
 
-2.  Calculate the Manski bounds```
+2.  Calculate the Manski bounds
+```
 bounds = c(0, u)
 ```
 
@@ -461,6 +462,17 @@ bounds = c(0, u)
   3.  Recalculate the casual estimate (6) using $A_3^*$ and save into vector $E$.
   4.  Repeat b-c a total of $B$ (large number) of times
   5.  Calculate p-value = sum($E \ge E^*$) / $B$
+
+Lastly with the calculated p-value we reject or accept the null hypothesis $H_0$ that there is no association.
+
+**Violation of Assumptions**
+
+If my assumptions were violated then I would have to change my estimation process and would most likely have to use GEE to estimate my casual effects.  I also would not be able to use Manksi monotone bounds would have to look into other methods such as Rosenbaum or VanderWeele.  Although if my assumptions were violated I would still be able to use the permutation method to test the null hypothesis that there is no association between treatment and no treatment on smoking rate.
+
+**Un-testable Assumptions**
+
+There are several assumptions that can not be tested or are very difficult to test.  One assumptions is conditional positivity and another assumption is conditional exchangeability.  The assumption of SUTVA is also hard/impossible to test.  Therefore my results depend on untestable assumptions: conditional positivity, conditional exchangeability, and SUTVA and this dependence is a limitation of our conclusions.
+
 
 Lastly with the calculated p-value we reject or accept the null hypothesis $H_0$ that there is no association.
 
