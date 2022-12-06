@@ -377,6 +377,11 @@ Now in order to construct Manski bounds we need to assume that the individual tr
   \mathbb{E}[Y(a) | A = 0, X = x] \ge \mathbb{E}[Y(a) | A = 1, X = x]
 \end{align*}
 
+**Alternatives to Estimation/Implementation/Identification**
+
+Originally we were not assuming any unmeasured $U$ within our experiment.  Now we are making this assumption because it is highly possible that there are some unmeasured factors that could be effecting our casual effects i.e. circle of friends that encourage drinking/smoking, depression and so on.
+
+Another estimation method to look into is using Generalized Estimating Equations (GEE).  This method could be useful because it incorporates the, $t$, time points and we will not have to make casual estimates at every time point $t$.
 
 <!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js" charset="utf-8"></script><script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js?" charset="utf-8"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
 
