@@ -251,9 +251,9 @@ Next we build linear splines with propensity scores and knots at quantiles.  The
 ```
 D$p = p
 q = quantile(p, [0.25, 0.5, 0.75])
-D$p_1 = (p \ge q(1)) \cdot (p - q(1))
-D$p_2 = (p \ge q(2)) \cdot (p - q(2))
-D$p_3 = (p \ge q(3)) \cdot (p - q(3))
+D$p1 = (p >= q(1)) * (p - q(1))
+D$p2 = (p >= q(2)) * (p - q(2))
+D$p3 = (p >= q(3)) * (p - q(3))
 ```
 
 Now we build our outcome regression model with $A_1$.
@@ -280,31 +280,31 @@ $$D = [Y_3, Y_2, X_2, S_2, A_1, A_2]$$
 
 Next we need to estimate our propensity score.  This is done by regressing $A_2$ onto $A_1, Y_2, X_2,$ and $S_2$ via GLM with a logit link function.  
 
-\begin{align*}
-mod = fitglm(D, A_2 \sim A_1 + Y_2 + X_2 + S_2, "binomial")
-\end{align*}
+```
+mod = fitglm(D, A2 ~ A1 + Y2 + X2 + S2, "binomial")
+```
 
 Then we make our predictions,
 
-\begin{align*}
+```
 p = predict(mod, D)
-\end{align*}
+```
 
 Next we build linear splines with propensity scores and knots at quantiles.  The propensity scores and splines are added to the data, $D$.
 
-\begin{align*}
-&D$p = p \\
-&q = quantile(p, [0.25, 0.5, 0.75]) \\
-&D$p_1 = (p \ge q(1)) \cdot (p - q(1)) \\
-&D$p_2 = (p \ge q(2)) \cdot (p - q(2)) \\
-&D$p_3 = (p \ge q(3)) \cdot (p - q(3))
-\end{align*}
+```
+D$p = p 
+q = quantile(p, [0.25, 0.5, 0.75]) 
+D$p1 = (p >= q(1)) * (p - q(1)) 
+D$p2 = (p >= q(2)) * (p - q(2)) 
+D$p3 = (p >= q(3)) * (p - q(3))
+```
 
 Now we build our outcome regression model with $A_2$.
 
-\begin{align*}
-mod = fitglm(D, Y_3 \sim A_2 + p + p_1 + p_2 + p_3)
-\end{align*}
+```
+mod = fitglm(D, Y3 ~ A2 + p + p1 + p2 + p3)
+```
 
 We can now estimate (5) with the coefficient for $A_2$ from the outcome regression model above.
 
