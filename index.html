@@ -439,5 +439,30 @@ bounds = c(0, u)
 
 Lastly with the calculated p-value we reject or accept the null hypothesis $H_0$ that there is no association.
 
+***Case 3:***
+
+For the third time point, $t = 3$, we will find the Manski bounds for casual estimate in (6).  Here the data is,
+
+$$D = [Y_3, Y_4, X_3, A_1, A_2, A_3, S_3]$$
+
+1.  Calculate the Manksi upper bound
+```
+U = mean(D$Y4[D$A3 == 0]) - mean(D$Y4[D$A3 == 1])
+```
+
+2.  Calculate the Manski bounds```
+bounds = c(0, u)
+```
+
+3.  Conduct permutation test
+
+  1.  Estimate $E^*$ via (6) using original data $D$
+  2.  Create $A_3^*$ by randomly permuting $A_3$
+  3.  Recalculate the casual estimate (6) using $A_3^*$ and save into vector $E$.
+  4.  Repeat b-c a total of $B$ (large number) of times
+  5.  Calculate p-value = sum($E \ge E^*$) / $B$
+
+Lastly with the calculated p-value we reject or accept the null hypothesis $H_0$ that there is no association.
+
 <!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js" charset="utf-8"></script><script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js?" charset="utf-8"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
 
