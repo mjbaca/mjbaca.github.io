@@ -407,11 +407,11 @@ bounds = c(0, u)
 
 *Step 3:*  Conduct permutation test
 
-|    a:  Estimate $E^*$ via (4) using original data $D$ \
-|    b:  Create $A_1^*$ by randomly permuting $A_1$ \
-|    c:  Recalculate the casual estimate (4) using $A_1^*$ and save into vector $E$. \
-|    d:  Repeat b-c a total of $B$ (large number) of times \
-|    e:  Calculate p-value = sum($E \ge E^*$) / $B$ \
+    a:  Estimate $E^*$ via (4) using original data $D$ 
+    b:  Create $A_1^*$ by randomly permuting $A_1$ 
+    c:  Recalculate the casual estimate (4) using $A_1^*$ and save into vector $E$. 
+    d:  Repeat b-c a total of $B$ (large number) of times 
+    e:  Calculate p-value = sum($E \ge E^*$) / $B$ 
 
 Lastly with the calculated p-value we reject or accept the null hypothesis $H_0$ that there is no association.
 
