@@ -393,25 +393,25 @@ For the first time point, $t = 1$, we will find the Manski bounds for casual est
 
 $$D = [Y_2, A_1, S_1]$$
 
-*Step 1:*  Calculate the Manksi upper bound
+1.  Calculate the Manksi upper bound
 
 ```
 U = mean(D$Y2[D$A1 == 0]) - mean(D$Y2[D$A1 == 1])
 ```
 
-*Step 2:*  Calculate the Manski bounds
+2.  Calculate the Manski bounds
 
 ```
 bounds = c(0, u)
 ```
 
-*Step 3:*  Conduct permutation test
+3.  Conduct permutation test
 
-  a:  Estimate $E^*$ via (4) using original data $D$ 
-  b:  Create $A_1^*$ by randomly permuting $A_1$ 
-  c:  Recalculate the casual estimate (4) using $A_1^*$ and save into vector $E$. 
-  d:  Repeat b-c a total of $B$ (large number) of times 
-  e:  Calculate p-value = sum($E \ge E^*$) / $B$ 
+  1.  Estimate $E^*$ via (4) using original data $D$ 
+  2.  Create $A_1^*$ by randomly permuting $A_1$ 
+  3.  Recalculate the casual estimate (4) using $A_1^*$ and save into vector $E$. 
+  4.  Repeat b-c a total of $B$ (large number) of times 
+  5.  Calculate p-value = sum($E \ge E^*$) / $B$ 
 
 1. Make a user interface with the following controls:
   1. Resolution dropdown box featuring at least 1x1, 320x200, and 640x400 options.
