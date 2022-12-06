@@ -387,5 +387,33 @@ Another estimation method to look into is using Generalized Estimating Equations
 
 Below are the descriptions for calculating the Manski bounds and the permutation test for the first $t = (1, 2, 3)$ time points.
 
+***Case 1:***
+
+For the first time point, $t = 1$, we will find the Manski bounds for casual estimate in (4).  Here the data is,
+
+$$D = [Y_2, A_1, S_1]$$
+
+*Step 1:*  Calculate the Manksi upper bound
+
+```
+U = mean(D$Y2[D$A1 == 0]) - mean(D$Y2[D$A1 == 1])
+```
+
+*Step 2:*  Calculate the Manski bounds
+
+```
+bounds = c(0, u)
+```
+
+*Step 3:*  Conduct permutation test
+
+|    a:  Estimate $E^*$ via (4) using original data $D$
+|    b:  Create $A_1^*$ by randomly permuting $A_1$
+|    c:  Recalculate the casual estimate (4) using $A_1^*$ and save into vector $E$.
+|    d:  Repeat b-c a total of $B$ (large number) of times
+|    e:  Calculate p-value = sum($E \ge E^*$) / $B$
+
+Lastly with the calculated p-value we reject or accept the null hypothesis $H_0$ that there is no association.
+
 <!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js" charset="utf-8"></script><script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js?" charset="utf-8"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
 
