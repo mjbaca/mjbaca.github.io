@@ -411,7 +411,7 @@ bounds = c(0, u)
   4.  Repeat b-c a total of $B$ (large number) of times 
   5.  Calculate p-value = sum($E \ge E^*$) / $B$ 
 
-Lastly with the calculated p-value we reject or accept the null hypothesis $H_0$ that there is no association.
+Lastly with the calculated p-value we reject or accept the null hypothesis $H_0$ that there is no association.  Because there are a total of $T$ comparisons being made a Bonferroni correction will need to be made in order to address the issue of multiple comparisons i.e. compare the p-value to $\alpha / T$ where $T$ is the total number of time points.
 
 ***Case 2:***
 
