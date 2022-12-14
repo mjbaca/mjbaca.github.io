@@ -476,5 +476,13 @@ There are several assumptions that can not be tested or are very difficult to te
 
 Lastly with the calculated p-value we reject or accept the null hypothesis $H_0$ that there is no association.
 
+
+Homework-6
+===============================================================================
+
+**Final Remarks**
+
+In summary we were set out to see if the use of Mobile Health interventions over time can help reduce heavy drinking and smoking among college students.  First we conducted identification of our casual estimate for the first three, $t = (1, 2, 3)$, time points.  Next, we calculated our casual estimates via outcome regression adjusting for propensity score. Then we conducted sensitivity analysis using Manksi monotone bounds and a permutation test on the association between treatment $A = 1$ and no treatment $A = 0$ on the smoking rate $Y$.  These methods were to be done for every, $t$, time point.  To avoid the need of running these methods a total of $T$ times, one could use Generalized Estimating Equations (GEE) which would incorporate the time component.  In the future I will look into the implementation of GEE to obtain our casual estimate.  One of the major limitations with this project is that we do not have any data and hopefully in the future I will have a longitudinal data set that I can try implement my analysis on.  As these healthcare APPs become more and more prevalent, this work can be used to test the effectiveness of these treatment intervention APPs over time.
+
 <!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js" charset="utf-8"></script><script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js?" charset="utf-8"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
 
